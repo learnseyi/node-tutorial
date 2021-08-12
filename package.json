@@ -1,0 +1,19 @@
+{
+  "name": "tutorial-1",
+  "version": "1.0.0",
+  "description": "my first node tutorial by John  Smilga",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/learnseyi/node-tutorial.git"
+  },
+  "author": "Seyi Agboola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/learnseyi/node-tutorial/issues"
+  },
+  "homepage": "https://github.com/learnseyi/node-tutorial#readme"
+}
