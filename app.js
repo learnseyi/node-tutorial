@@ -9,8 +9,27 @@ const upTime = os.uptime()
 
 fs.writeFileSync('./fs.txt',`this is a test,\n'this is a test \n`,{flag:'a'})
 
+const getData = ()=>{
+  return new Promise((resolve,reject)=>{
+    const data = fs.readFile('./fs.txt','utf8',(err,data)=>{
+      !err ? resolve(data) : reject('There was an error')
+    })
+
+  })
+}
+
 const server = http.createServer((req,res)=>{
-  res.end('God has done it again')
+   // getData().then(info => res.end(info)).catch(err =>res.end(err.message))
+   const data = async()=>{
+     try{
+       const t = await getData()
+       // const info = await t
+       res.end(t)
+       return info
+     }catch(err){console.log(err)}
+   }
+   data()
+   // console.log(data())
 })
 
 server.listen('5000',()=>{
