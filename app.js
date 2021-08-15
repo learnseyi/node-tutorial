@@ -1,10 +1,15 @@
-const http = require('http');
+const express = require('express');
+const path = require('path');
 
-const server = http.createServer((req,res)=>{
-  res.end({
-    name: 'seyi',
-    age: 39
-  })
-}).listen(5000,()=>{
-  console.log('server listening on port 5000')
+const app = express();
+app.use(express.static('./public'))
+app.get('/',(req,res)=>{
+  res.status(200).sendFile(path.resolve(__dirname,'./navbar-app/index.html'))
+})
+app.all('*',(req,res)=>{
+  res.status(400).send('<h1>Resource not found</h1>')
+})
+
+app.listen(5000,()=>{
+  console.log('app listening on port 5000')
 })
